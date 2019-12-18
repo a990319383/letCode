@@ -24,14 +24,27 @@ public class _03wuchongfushuzi {
      *      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
      */
     public Object lengthOfLongestSubstring(String s) {
-        if(s.length()<2)
+        if (s.length() < 2)
             return 1;
         int maxLength = 1;//存储最大不重复长度
-        for (int i = 1; i <s.length() ; i++) {
-            String str = s.substring(0,i);
-            boolean b = test1(str);
-            if(b){
+        for (int i = 1; i < s.length(); i++) {
+            String str = s.substring(0, i);
+            int b = 0;
+            if (str.length() == 1)
+                b = 0;
+            int length = str.length();
+            for (int j = 1; j <= length / 2; j++) {
+                String str1 = str.substring(length - j);
+                String str2 = str.substring(length - str1.length() - j, length - j);
+                if (str1.equals(str2)) {
+                    return str1.length();
+                }
+            }
+            b = 0;
+            if (b == 0) {
                 maxLength = str.length();
+            } else {
+                return b;
             }
         }
         return maxLength;
@@ -39,7 +52,7 @@ public class _03wuchongfushuzi {
 
     @Test
     public void test() {
-        Object result = lengthOfLongestSubstring("abcabcbb");
+        Object result = lengthOfLongestSubstring("pwwkew");
         System.out.println(result);
     }
 
@@ -47,18 +60,18 @@ public class _03wuchongfushuzi {
      * 判断一个字符串是否有重复的
      * true 为不重复
      */
-    public boolean test1(String str) {
-        if(str.length()==1)
-            return false;
+    public int test1(String str) {
+        if (str.length() == 1)
+            return 0;
         int length = str.length();
         for (int i = 1; i <= length / 2; i++) {
             String str1 = str.substring(length - i);
-            String str2 = str.substring(length/2 - i,length );
-            if(str1.equals(str2)){
-                return false;
+            String str2 = str.substring(length - str1.length() - i, length - i);
+            if (str1.equals(str2)) {
+                return str1.length();
             }
         }
-        return true;
+        return 0;
     }
 
 }
