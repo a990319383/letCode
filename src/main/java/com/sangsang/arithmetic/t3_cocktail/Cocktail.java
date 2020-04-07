@@ -1,4 +1,4 @@
-package com.sangsang.arithmetic.cocktail;
+package com.sangsang.arithmetic.t3_cocktail;
 
 import java.util.Arrays;
 

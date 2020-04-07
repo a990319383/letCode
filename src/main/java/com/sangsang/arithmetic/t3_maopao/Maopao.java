@@ -1,4 +1,4 @@
-package com.sangsang.arithmetic.maopao;
+package com.sangsang.arithmetic.t3_maopao;
 
 import java.util.Arrays;
 
