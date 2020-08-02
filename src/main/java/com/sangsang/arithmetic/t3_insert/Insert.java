@@ -20,9 +20,4 @@ public class Insert {
         }
         return nums;
     }
-
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String a = "���׳ɹ��������㣡";
-        System.out.println(new String(a.getBytes("gbk"),"utf-8"));
-    }
 }
