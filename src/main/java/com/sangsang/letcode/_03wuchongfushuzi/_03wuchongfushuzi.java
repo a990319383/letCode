@@ -31,13 +31,15 @@ public class _03wuchongfushuzi {
      * @param s
      * @return
      */
-    public Object lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring(String s) {
         int index = 0;
         int maxLength = 0;
+        HashSet<String> hashSet = new HashSet();
         for (int i = 1; i <= s.length(); i++) {
             String str = s.substring(index,i);
             String[] strs = str.split("");
-            HashSet<String> hashSet = new HashSet(Arrays.asList(strs));
+            hashSet.clear();
+            hashSet.addAll(Arrays.asList(strs));
             if(strs.length != hashSet.size()){
                 index++;
             }else if(str.length()>maxLength){
