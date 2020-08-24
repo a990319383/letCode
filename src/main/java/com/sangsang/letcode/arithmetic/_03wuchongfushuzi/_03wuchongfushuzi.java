@@ -1,4 +1,4 @@
-package com.sangsang.letcode._03wuchongfushuzi;
+package com.sangsang.letcode.arithmetic._03wuchongfushuzi;
 
 import org.junit.Test;
 
