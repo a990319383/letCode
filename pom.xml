@@ -61,6 +61,21 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
+
+		<!--smart doc 文档生成工具-->
+		<!--依赖的库-->
+		<dependency>
+			<groupId>com.github.shalousun</groupId>
+			<artifactId>common-util</artifactId>
+			<version>1.8.7</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.shalousun</groupId>
+			<artifactId>smart-doc</artifactId>
+			<version>1.9.2</version>
+			<scope>compile</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

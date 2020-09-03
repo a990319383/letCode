@@ -8,11 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 测试controller
+ */
 @RestController
 public class TestController {
     @Autowired
     private RedissonClient redissonClient;
 
+    /**
+     * 查看redission看门狗机制是否生效
+     * @return
+     * @throws InterruptedException
+     */
     @RequestMapping("/test")
     public Object test1() throws InterruptedException {
         RLock fairLock = redissonClient.getFairLock("fairLock");
