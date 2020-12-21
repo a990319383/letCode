@@ -37,4 +37,30 @@ public class TestController {
         return "成功";
 
     }
+
+    /**
+     * 这里资源锁住了只是自旋等待
+     * https://mp.weixin.qq.com/s/95N8mKRreeOwaXLttYCbcQ  redisson介紹
+     */
+    @RequestMapping("/aaa")
+    public  void aaa() {
+        for (int i = 0; i <50 ; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    RLock fairLock = redissonClient.getFairLock("testCount");
+                    try {
+                        fairLock.tryLock(100, 10, TimeUnit.SECONDS);
+                        Thread.sleep(1000);
+                        System.out.println("获取了锁");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }finally {
+                        fairLock.unlock();
+                    }
+
+                }
+            }).start();
+        }
+    }
 }

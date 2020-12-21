@@ -27,12 +27,12 @@ public class SmartDoc {
         // 配置多个报名有英文逗号隔开
         config.setPackageFilters("com.sangsang.web.controller");
 
-       /* config.setSourceCodePaths(
-                SourceCodePath.path().setDesc("本项目代码").setPath("src/main/java/com/quanqiuwa/website/openroad/controller/settlement")
+        config.setSourceCodePaths(
+                SourceCodePath.path().setDesc("本项目代码").setPath("D:\\ideal\\workspace\\letcode\\src\\main\\java")
 //                ,//smart-doc对路径自动会做处理，无论是window合适linux系统路径，直接拷贝贴入即可
 //                SourceCodePath.path().setDesc("加载外部项目源码").setPath("D:\\Develop\\Workspace_qqw3\\settlement-service\\settlement-common\\src\\main\\java"),
 //                SourceCodePath.path().setDesc("加载外部项目源码").setPath("D:\\Develop\\Workspace_qqw3\\open-road\\open-road-biz\\src\\main\\java\\com\\quanqiuwa\\website\\openroad\\common")
-        );*/
+        );
 
         //自定义注释
         config.setCustomResponseFields(
