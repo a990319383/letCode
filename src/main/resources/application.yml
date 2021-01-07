@@ -2,7 +2,7 @@ server:
   port: 8081
 redisson:
   timeout: 3000
-  address: redis://112.124.27.136:6379
+  address: redis://49.232.209.124:6379
   password: sangsang
   database: 1
   connectionPoolSize: 64

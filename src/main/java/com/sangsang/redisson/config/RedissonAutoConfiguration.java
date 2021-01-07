@@ -15,6 +15,9 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 
+/**
+ * https://www.cnblogs.com/yangzhilong/p/7605807.html
+ */
 @Configuration
 @ConditionalOnClass(Config.class)//ConditionalOnClass注解：判断当前classpath存在 Config.class这个类才装配
 @EnableConfigurationProperties(RedissonProperties.class)
