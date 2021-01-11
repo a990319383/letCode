@@ -1,0 +1,7 @@
+https://mp.weixin.qq.com/s/z4tNeHeT1GSIGOC3Xul3bQ
+lfu:Least Frequently Used (最不常使用淘汰，强调的是使用频率)
+基本要求：
+    1.数据使用频次，频次越高的越靠前
+    2.频次相同的，访问时间晚的靠前
+比较简单但是慢的实现：
+    双向链表 每一个node节点有value（具体的值），freq（访问频率）

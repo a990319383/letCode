@@ -1,4 +1,4 @@
-package com.sangsang.arithmetic.t3_select;
+package com.sangsang.arithmetic.sort.t3_select;
 
 import java.util.Arrays;
 

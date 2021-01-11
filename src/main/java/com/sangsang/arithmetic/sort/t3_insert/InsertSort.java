@@ -1,8 +1,6 @@
-package com.sangsang.arithmetic.t3_insert;
+package com.sangsang.arithmetic.sort.t3_insert;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 //插入排序
 
