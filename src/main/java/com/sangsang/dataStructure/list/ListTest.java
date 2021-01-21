@@ -13,6 +13,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author 哑巴湖大水怪
  * @date 2021/1/15 17:08
  * list线程不安全及扩容测试
+ * 项目中有没有设置初始容量为8，存储8条数据，未扩容发现丢失数据的问题，用反射查看容量字段发现并未扩容
+ * ，将容量修改为16后解决，具体原因未知，下面未能复现
+ *
  */
 public class ListTest {
     public static void main(String[] args) throws Exception {
