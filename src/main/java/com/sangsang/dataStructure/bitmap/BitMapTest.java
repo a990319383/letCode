@@ -1,4 +1,4 @@
-package com.sangsang.dataStructure;
+package com.sangsang.dataStructure.bitmap;
 
 import java.util.BitSet;
 
