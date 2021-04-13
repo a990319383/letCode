@@ -27,7 +27,7 @@ public class TestController {
 //        fairLock.tryLock(1, TimeUnit.SECONDS);//会触发看门狗
       /*  // 尝试加锁，最多等待100秒，上锁以后10秒自动解锁
         boolean res = fairLock.tryLock(100, 10, TimeUnit.SECONDS);*/
-        fairLock.lock(1,TimeUnit.SECONDS );//不会触发看门狗，锁会被释放掉
+        fairLock.lock(1,TimeUnit.HOURS );//不会触发看门狗，锁会被释放掉
         Thread.sleep(3000);
         if(fairLock.isHeldByCurrentThread()){
             System.out.println("锁还在");

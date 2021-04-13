@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 public class RedissonAutoConfiguration {
     @Resource
     private RedissonProperties redssionProperties;
-/*    *//**
+    /*    *//**
      * 哨兵模式自动装配
      *//*
     @Bean
@@ -42,12 +42,14 @@ public class RedissonAutoConfiguration {
         }
         return Redisson.create(config);
     }*/
+
     /**
      * 单机模式自动装配
+     *
      * @return
      */
-    @Bean
-    @ConditionalOnProperty(name="redisson.address")
+    /*@Bean
+    @ConditionalOnProperty(name = "redisson.address")
     RedissonClient redissonSingle() {
         Config config = new Config();
         config.setLockWatchdogTimeout(1000L);
@@ -58,11 +60,31 @@ public class RedissonAutoConfiguration {
                 .setConnectionPoolSize(redssionProperties.getConnectionPoolSize())
                 .setConnectionMinimumIdleSize(redssionProperties.getConnectionMinimumIdleSize());
 
-        if(StringUtils.isNotBlank(redssionProperties.getPassword())) {
+        if (StringUtils.isNotBlank(redssionProperties.getPassword())) {
             serverConfig.setPassword(redssionProperties.getPassword());
         }
 
         return Redisson.create(config);
-    }
+    }*/
 
+    /**
+     * 集群模式装配
+     *
+     * @return
+     */
+    @Bean
+    RedissonClient redissonClustering() {
+        Config config = new Config();
+        config.useClusterServers()
+                .setScanInterval(2000) // 集群状态扫描间隔时间，单位是毫秒
+                //可以用"rediss://"来启用SSL连接
+                .addNodeAddress("redis://192.168.2.154:7000",
+                        "redis://192.168.2.154:7001",
+                        "redis://192.168.2.155:7002",
+                        "redis://192.168.2.155:7003",
+                        "redis://192.168.2.157:7004",
+                        "redis://192.168.2.157:7005")
+                .setPassword("zjxl2019#");
+        return Redisson.create(config);
+    }
 }
