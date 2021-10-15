@@ -48,7 +48,7 @@ public class RedissonAutoConfiguration {
      *
      * @return
      */
-    /*@Bean
+    @Bean(name="redissonSingle")
     @ConditionalOnProperty(name = "redisson.address")
     RedissonClient redissonSingle() {
         Config config = new Config();
@@ -65,14 +65,14 @@ public class RedissonAutoConfiguration {
         }
 
         return Redisson.create(config);
-    }*/
+    }
 
     /**
      * 集群模式装配
      *
      * @return
      */
-    @Bean
+    @Bean(name = "redissonClustering")
     RedissonClient redissonClustering() {
         Config config = new Config();
         config.useClusterServers()
