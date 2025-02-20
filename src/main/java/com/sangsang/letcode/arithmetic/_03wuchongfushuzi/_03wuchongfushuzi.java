@@ -32,21 +32,39 @@ public class _03wuchongfushuzi {
      * @return
      */
     public int lengthOfLongestSubstring(String s) {
-        int index = 0;
+        //左索引
+        int lIndex = 0;
+        //最大长度
         int maxLength = 0;
-        HashSet<String> hashSet = new HashSet();
-        for (int i = 1; i <= s.length(); i++) {
-            String str = s.substring(index,i);
-            String[] strs = str.split("");
-            hashSet.clear();
-            hashSet.addAll(Arrays.asList(strs));
-            if(strs.length != hashSet.size()){
-                index++;
-            }else if(str.length()>maxLength){
-                maxLength = str.length();
+        for (int i = 0; i < s.length(); i++) {
+            //有重复的左指针就一直++
+            while (repetition(s.substring(lIndex, i + 1))) {
+                lIndex++;
             }
+            maxLength = Math.max(maxLength, (i - lIndex + 1));
         }
         return maxLength;
+    }
+
+    //用于判断是否重复的一个set
+    private static Set<Character> set = new HashSet<>();
+
+    /**
+     * 判断当前字符串是否有重复的
+     *
+     * @author liutangqi
+     * @date 2025/2/20 15:40
+     * @Param [str]
+     **/
+    private boolean repetition(String str) {
+        //清空
+        set.clear();
+        //利用set去重判断是否重复
+        char[] chars = str.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            set.add(chars[i]);
+        }
+        return set.size() != str.length();
     }
 
     @Test
